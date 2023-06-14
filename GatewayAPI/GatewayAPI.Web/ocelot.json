@@ -1,0 +1,551 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5003"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "offices",
+      "Config": [
+        {
+          "Name": "Offices API",
+          "Version": "v1",
+          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "appointments",
+      "Config": [
+        {
+          "Name": "Appointments API",
+          "Version": "v1",
+          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "documents",
+      "Config": [
+        {
+          "Name": "Documents API",
+          "Version": "v1",
+          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "services",
+      "Config": [
+        {
+          "Name": "Services API",
+          "Version": "v1",
+          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "profiles",
+      "Config": [
+        {
+          "Name": "Profiles API",
+          "Version": "v1",
+          "Url": "http://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "Routes": [
+    //Offices API
+    {
+      "SwaggerKey": "offices",
+      "UpstreamPathTemplate": "/Offices",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/offices",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7182
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "offices",
+      "UpstreamPathTemplate": "/Offices/{id}",
+      "UpstreamHttpMethod": [ "PUT", "GET" ],
+      "DownstreamPathTemplate": "/offices/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7182
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "offices",
+      "UpstreamPathTemplate": "/Offices/{id}/status",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/offices/{id}/status",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7182
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "offices",
+      "UpstreamPathTemplate": "/Offices/{pageSize}/{pageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/offices/{pageSize}/{pageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7182
+        }
+      ]
+    },
+    //Profiles API
+    //doctors
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Doctors/",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/doctors/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Doctors/{id}",
+      "UpstreamHttpMethod": [ "PUT", "GET" ],
+      "DownstreamPathTemplate": "/doctors/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Doctors/{id}/status",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/doctors/{id}/status",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Doctors/{pageSize}/{pageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/doctors/{pageSize}/{pageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    //patients
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Patients/",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/patients/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Patients/{id}",
+      "UpstreamHttpMethod": [ "PUT", "GET", "DELETE" ],
+      "DownstreamPathTemplate": "/patients/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Patients/{pageSize}/{pageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/patients/{pageSize}/{pageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    //receptionists
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Receptionists/",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/receptionists/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Receptionists/{id}",
+      "UpstreamHttpMethod": [ "PUT", "GET", "DELETE" ],
+      "DownstreamPathTemplate": "/receptionists/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Receptionists/{pageSize}/{pageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/receptionists/{pageSize}/{pageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7030
+        }
+      ]
+    },
+    //Services API
+    //categories
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Categories/",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/categories/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    //services
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Services/{ServiceCategoryName}/{PageSize}/{PageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/services/{ServiceCategoryName}/{PageSize}/{PageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Services/{Id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/services/{Id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Services/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/services/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Services/{id}/status",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/services/{id}/status",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Services",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/services",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    //specializations
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Specializations/{PageSize}/{PageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/specializations/{PageSize}/{PageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Specializations/{Id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/specializations/{Id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Specializations/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/specializations/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Specializations/{id}/status",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/specializations/{id}/status",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Specializations",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/specializations",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7277
+        }
+      ]
+    },
+    //Appointments API
+    {
+      "SwaggerKey": "appointments",
+      "UpstreamPathTemplate": "/Appointments",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/appointments",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "appointments",
+      "UpstreamPathTemplate": "/Appointments/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "DownstreamPathTemplate": "/appointments/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "appointments",
+      "UpstreamPathTemplate": "/Appointments/{id}/approve",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/appointments/{id}/approve",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "appointments",
+      "UpstreamPathTemplate": "/Appointments/{id}/reschedule",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/appointments/{id}/reschedule",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "appointments",
+      "UpstreamPathTemplate": "/Appointments/{pageSize}/{pageNumber}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/appointments/{pageSize}/{pageNumber}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7296
+        }
+      ]
+    },
+    //Documents API
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Documents/",
+      "UpstreamHttpMethod": [ "POST", "DELETE" ],
+      "DownstreamPathTemplate": "/documents/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Documents/{documentFileName}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/documents/{documentFileName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Images/",
+      "UpstreamHttpMethod": [ "POST", "DELETE" ],
+      "DownstreamPathTemplate": "/images/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Images/{imageFileName}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/images/{imageFileName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Results",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/results",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Results/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/results/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "documents",
+      "UpstreamPathTemplate": "/Results/{appointmentId}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/results/{appointmentId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7281
+        }
+      ]
+    }
+  ]
+}
