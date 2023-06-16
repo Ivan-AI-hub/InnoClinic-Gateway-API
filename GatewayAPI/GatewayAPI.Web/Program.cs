@@ -1,4 +1,5 @@
 using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,5 +17,7 @@ app.UseSwaggerForOcelotUI(opt =>
 {
     opt.PathToSwaggerGenerator = "/swagger/docs";
 });
+app.UseRouting();
+app.UseOcelot();
 
 app.Run();
