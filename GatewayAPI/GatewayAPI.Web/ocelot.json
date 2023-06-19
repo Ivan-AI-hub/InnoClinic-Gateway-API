@@ -1,7 +1,13 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://host.docker.internal:5003"
+    "BaseUrl": "https://host.docker.internal:5003",
+    "QoSOptions": {
+      "ExceptionsAllowedBeforeBreaking": 3,
+      "DurationOfBreak": 1000,
+      "TimeoutValue": 5000
+    }
   },
+  
   "SwaggerEndPoints": [
     {
       "Key": "offices",
@@ -54,6 +60,7 @@
       ]
     }
   ],
+
   "Routes": [
     //Offices API
     {
@@ -67,12 +74,37 @@
           "Host": "host.docker.internal",
           "Port": 8030
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "offices",
       "UpstreamPathTemplate": "/Offices/{id}",
-      "UpstreamHttpMethod": [ "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/offices/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8030
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
+    },
+    {
+      "SwaggerKey": "offices",
+      "UpstreamPathTemplate": "/Offices/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/offices/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -93,7 +125,13 @@
           "Host": "host.docker.internal",
           "Port": 8030
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "offices",
@@ -121,12 +159,18 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Doctor"
+      }
     },
     {
       "SwaggerKey": "profiles",
       "UpstreamPathTemplate": "/Doctors/{id}",
-      "UpstreamHttpMethod": [ "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/doctors/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -135,6 +179,25 @@
           "Port": 8020
         }
       ]
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Doctors/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/doctors/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8020
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Doctor"
+      }
     },
     {
       "SwaggerKey": "profiles",
@@ -147,7 +210,13 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Doctor"
+      }
     },
     {
       "SwaggerKey": "profiles",
@@ -174,12 +243,18 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient"
+      }
     },
     {
       "SwaggerKey": "profiles",
       "UpstreamPathTemplate": "/Patients/{id}",
-      "UpstreamHttpMethod": [ "PUT", "GET", "DELETE" ],
+      "UpstreamHttpMethod": [ "PUT", "DELETE" ],
       "DownstreamPathTemplate": "/patients/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -187,7 +262,29 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient"
+      }
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Patients/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/patients/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8020
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "SwaggerKey": "profiles",
@@ -200,7 +297,10 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     //receptionists
     {
@@ -214,7 +314,13 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "profiles",
@@ -227,7 +333,13 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "profiles",
@@ -240,7 +352,13 @@
           "Host": "host.docker.internal",
           "Port": 8020
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     //Services API
     //categories
@@ -255,7 +373,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     //services
     {
@@ -295,7 +419,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "services",
@@ -308,7 +438,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "services",
@@ -321,7 +457,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     //specializations
     {
@@ -361,7 +503,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "services",
@@ -374,7 +522,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "services",
@@ -387,7 +541,13 @@
           "Host": "host.docker.internal",
           "Port": 8040
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     //Appointments API
     {
@@ -401,7 +561,13 @@
           "Host": "host.docker.internal",
           "Port": 8050
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient"
+      }
     },
     {
       "SwaggerKey": "appointments",
@@ -414,7 +580,13 @@
           "Host": "host.docker.internal",
           "Port": 8050
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "SwaggerKey": "appointments",
@@ -427,7 +599,13 @@
           "Host": "host.docker.internal",
           "Port": 8050
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Doctor,Admin"
+      }
     },
     {
       "SwaggerKey": "appointments",
@@ -440,7 +618,13 @@
           "Host": "host.docker.internal",
           "Port": 8050
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Doctor,Admin"
+      }
     },
     {
       "SwaggerKey": "appointments",
@@ -453,7 +637,10 @@
           "Host": "host.docker.internal",
           "Port": 8050
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     //Documents API
     {
@@ -467,7 +654,10 @@
           "Host": "host.docker.internal",
           "Port": 8060
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "SwaggerKey": "documents",
@@ -480,7 +670,10 @@
           "Host": "host.docker.internal",
           "Port": 8060
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "SwaggerKey": "documents",
@@ -493,7 +686,10 @@
           "Host": "host.docker.internal",
           "Port": 8060
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "SwaggerKey": "documents",
@@ -519,7 +715,10 @@
           "Host": "host.docker.internal",
           "Port": 8060
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "SwaggerKey": "documents",
@@ -532,7 +731,10 @@
           "Host": "host.docker.internal",
           "Port": 8060
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "SwaggerKey": "documents",
@@ -545,7 +747,10 @@
           "Host": "host.docker.internal",
           "Port": 8060
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     }
   ]
 }
