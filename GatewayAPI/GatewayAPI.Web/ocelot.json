@@ -284,6 +284,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     {
@@ -300,6 +303,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     //receptionists
@@ -640,6 +646,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     //Documents API
@@ -657,6 +666,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     {
@@ -673,6 +685,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     {
@@ -689,6 +704,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     {
@@ -718,6 +736,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     {
@@ -734,6 +755,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     },
     {
@@ -750,6 +774,9 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
       }
     }
   ]
