@@ -1,6 +1,9 @@
 ﻿using GatewayAPI.Web.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using Serilog.Sinks.Elasticsearch;
+using System.Reflection;
 using System.Text;
 
 namespace GatewayAPI.Web.Extensions
@@ -29,6 +32,25 @@ namespace GatewayAPI.Web.Extensions
             });
         }
 
+        public static void ConfigureLogger(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment, string elasticUriSection)
+        {
+            services.AddSerilog((context, loggerConfiguration) =>
+            {
+                loggerConfiguration.Enrich.FromLogContext()
+                    .Enrich.WithMachineName()
+                    .WriteTo.Console()
+                    .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(configuration[elasticUriSection]))
+                    {
+                        IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name!.ToLower().Replace(".", "-")}-{environment.EnvironmentName?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}",
+                        AutoRegisterTemplate = true,
+                        NumberOfShards = 2,
+                        NumberOfReplicas = 1
+                    })
+                    .Enrich.WithProperty("Environment", environment.EnvironmentName)
+                    .ReadFrom.Configuration(configuration);
+            });
+        }
+        
         public static void ConfigureSwagger(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen();

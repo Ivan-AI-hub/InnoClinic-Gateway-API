@@ -5,6 +5,7 @@ using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.ConfigureLogger(builder.Configuration, builder.Environment, "ElasticConfiguration:Uri");
 
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot(builder.Configuration).AddPolly();
