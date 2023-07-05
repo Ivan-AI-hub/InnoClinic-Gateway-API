@@ -5,6 +5,13 @@ using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
 builder.Services.ConfigureLogger(builder.Configuration, builder.Environment, "ElasticConfiguration:Uri");
 
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
@@ -24,6 +31,7 @@ app.UseSwaggerForOcelotUI(opt =>
 });
 
 app.UseHttpsRedirection();
+app.UseCors();
 app.UseAuthentication();
 
 var configuration = new OcelotPipelineConfiguration
