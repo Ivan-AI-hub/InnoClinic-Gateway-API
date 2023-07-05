@@ -169,6 +169,19 @@
     },
     {
       "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Doctors/email/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/doctors/email/{email}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8020
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "profiles",
       "UpstreamPathTemplate": "/Doctors/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/doctors/{id}",
@@ -272,6 +285,25 @@
     },
     {
       "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Patients/email/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/patients/email/{email}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8020
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
+      }
+    },
+    {
+      "SwaggerKey": "profiles",
       "UpstreamPathTemplate": "/Patients/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/patients/{id}",
@@ -331,7 +363,45 @@
     {
       "SwaggerKey": "profiles",
       "UpstreamPathTemplate": "/Receptionists/{id}",
-      "UpstreamHttpMethod": [ "PUT", "GET", "DELETE" ],
+      "UpstreamHttpMethod": [ "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/receptionists/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8020
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Receptionists/email/{email}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/receptionists/email/{email}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8020
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
+    },
+    {
+      "SwaggerKey": "profiles",
+      "UpstreamPathTemplate": "/Receptionists/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/receptionists/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -651,6 +721,25 @@
         "Role": "Patient,Doctor,Admin"
       }
     },
+    {
+      "SwaggerKey": "appointments",
+      "UpstreamPathTemplate": "/Appointments/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/appointments/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8050
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Patient,Doctor,Admin"
+      }
+    },
     //Documents API
     {
       "SwaggerKey": "documents",
@@ -757,13 +846,13 @@
         "AuthenticationProviderKey": "Bearer"
       },
       "RouteClaimsRequirement": {
-        "Role": "Patient,Doctor,Admin"
+        "Role": "Doctor"
       }
     },
     {
       "SwaggerKey": "documents",
       "UpstreamPathTemplate": "/Results/{appointmentId}",
-      "UpstreamHttpMethod": [ "PUT" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/results/{appointmentId}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
