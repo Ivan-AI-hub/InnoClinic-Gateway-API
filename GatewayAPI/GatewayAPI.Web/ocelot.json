@@ -473,6 +473,19 @@
     },
     {
       "SwaggerKey": "services",
+      "UpstreamPathTemplate": "/Services/specialization/{SpecializationName}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/services/specialization/{SpecializationName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8040
+        }
+      ]
+    },
+    {
+      "SwaggerKey": "services",
       "UpstreamPathTemplate": "/Services/{Id}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/services/{Id}",
